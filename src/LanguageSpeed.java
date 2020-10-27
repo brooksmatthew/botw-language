@@ -65,7 +65,10 @@ public class LanguageSpeed {
 		boolean allDungeons = false;
 		
 		//Which cutscenes
+		boolean slate = true;
+		boolean sorClip = true;
 		boolean firstBeast;
+		boolean allBeasts;
 		boolean northLomei;
 		boolean southLomei;
 		boolean lomeiIsland;
@@ -73,6 +76,13 @@ public class LanguageSpeed {
 		boolean eventideStart;
 		boolean eventideDone;
 		boolean monkGift;
+		
+		//DLC cutscenes
+		boolean swordTrial;
+		boolean thunderBlight;
+		boolean windBlight;
+		boolean fireBlight;
+		boolean waterBlight;
 		
 		System.out.println("Which category are you running? Possible categories include Any%, All Dungeons, All Main Quests, All Shrines, and 100%");
 		String category = userInput.nextLine();
@@ -119,21 +129,34 @@ public class LanguageSpeed {
 			hundo = true;
 			
 			//Hundo + DLC?
-			System.out.println("Are you running 100% with DLC?");
-			String dlc = userInput.nextLine();
+			System.out.println("Are you running 100% with DLC? y or n");
+			String dlcCheck = userInput.nextLine();
 			
-			if (dlc.contains("y")) {
+			if (dlcCheck.contains("y")) {
 				hundoDLC = true;
 			}
+			
 		}
+		
+		//AS Extended
+		
+		//AD Extended
+		
+		//AMQ Extended
 			
 		
-		else if (!hundo && !allShrines && !allMainQuests && !allDungeons && !anyPercent) {
+		else {
 			System.out.println("The category could not be identified. Please answer the following questions to determine the fastest languages for your run.");
 		
 		//Where run visits
 			System.out.println("The run contains DLC: true or false?");
 			boolean dlc = userInput.nextBoolean();
+			
+			System.out.println("The run collects the Sheikah Slate: true or false?");
+			slate = userInput.nextBoolean();
+			
+			System.out.println("The run clips out of the Shrine of Resurrection: true or false?");
+			sorClip = userInput.nextBoolean();
 			
 			System.out.println("There is a divine beast in the run before speaking to Impa: true or false?");
 			firstBeast = userInput.nextBoolean();
@@ -161,24 +184,25 @@ public class LanguageSpeed {
 			
 			if (dlc) {
 				System.out.println("The run starts Trial of the Sword: true or false?");
-				boolean swordTrial = userInput.nextBoolean();
+				swordTrial = userInput.nextBoolean();
 				
 				System.out.println("The run does the Thunderblight Illusory fight: true or false?");
-				boolean thunderBlight = userInput.nextBoolean();
+				thunderBlight = userInput.nextBoolean();
 				
 				System.out.println("The run does the Windblight Illusory fight: true or false?");
-				boolean windBlight = userInput.nextBoolean();
+				windBlight = userInput.nextBoolean();
 				
 				System.out.println("The run does the Waterblight Illusory fight: true or false?");
-				boolean waterBlight = userInput.nextBoolean();
+				waterBlight = userInput.nextBoolean();
 				
 				System.out.println("The run does the Fireblight Illusory fight: true or false?");
-				boolean fireBlight = userInput.nextBoolean();
+				fireBlight = userInput.nextBoolean();
 			}
 		}
 		
 		if (anyPercent) {
 			firstBeast = false;
+			allBeasts = false;
 			northLomei = false;
 			southLomei = false;
 			lomeiIsland = false;
@@ -189,7 +213,68 @@ public class LanguageSpeed {
 		}
 		
 		else if (hundo) {
-			
+			firstBeast = true;
+			allBeasts = true;
+			northLomei = true;
+			southLomei = true;
+			lomeiIsland = true;
+			typhloRuins = true;
+			eventideStart = true;
+			eventideDone = true;
+			monkGift = true;
+		}
+		
+		else if (hundoDLC) {
+			firstBeast = true;
+			allBeasts = true;
+			northLomei = true;
+			southLomei = true;
+			lomeiIsland = true;
+			typhloRuins = true;
+			eventideStart = true;
+			eventideDone = true;
+			monkGift = true;
+			swordTrial = true;
+			thunderBlight = true;
+			windBlight = true;
+			fireBlight = true;
+			waterBlight = true;
+		}
+		
+		else if (allShrines) {
+			firstBeast = false;
+			allBeasts = false;
+			northLomei = true;
+			southLomei = true;
+			lomeiIsland = true;
+			typhloRuins = true;
+			eventideStart = true;
+			eventideDone = true;
+			monkGift = true;
+		}
+		
+		else if (allMainQuests) {
+			firstBeast = false;
+			allBeasts = true;
+			northLomei = false;
+			southLomei = false;
+			lomeiIsland = false;
+			typhloRuins = false;
+			eventideStart = false;
+			eventideDone = false;
+			monkGift = false;
+		}
+		
+		else if (allDungeons) {
+			firstBeast = true;
+			allBeasts = true;
+			northLomei = false;
+			southLomei = false;
+			lomeiIsland = false;
+			typhloRuins = false;
+			eventideStart = false;
+			eventideDone = false;
+			monkGift = false;
 		}
 	}
 	
