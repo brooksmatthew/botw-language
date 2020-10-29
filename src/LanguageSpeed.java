@@ -7,11 +7,17 @@ public class LanguageSpeed {
 		//Scanner
 		Scanner userInput = new Scanner(System.in);
 		
+		double [] finalSecondsDouble = new double [9];
+		int [] finalSeconds = new int [9];
+		
+		double [] finalFramesDouble = new double [9];
+		int [] finalFrames = new int [9];
+		
 		//Array
 		/* Order of languages is English, Spanish (Latin America), French (Canada),
 		Japanese, Spanish (Spain), French (France), German, Italian, Russian.
-		
 		*/
+		
 		double [] [] times = {
 		//Sheikah Slate 
 		{0.1, 1.29, 3.28, 0, 0.14, 4.01, 3.28, 1.27, 0.27},	
@@ -67,15 +73,15 @@ public class LanguageSpeed {
 		//Which cutscenes
 		boolean slate = true;
 		boolean sorClip = true;
-		boolean firstBeast;
-		boolean allBeasts;
-		boolean northLomei;
-		boolean southLomei;
-		boolean lomeiIsland;
-		boolean typhloRuins;
-		boolean eventideStart;
-		boolean eventideDone;
-		boolean monkGift;
+		boolean firstBeast = false;
+		boolean allBeasts = false;
+		boolean northLomei = false;
+		boolean southLomei = false;
+		boolean lomeiIsland = false;
+		boolean typhloRuins = false;
+		boolean eventideStart = false;
+		boolean eventideDone = false;
+		boolean monkGift = false;
 		
 		//DLC cutscenes
 		boolean swordTrial;
@@ -134,6 +140,10 @@ public class LanguageSpeed {
 			
 			if (dlcCheck.contains("y")) {
 				hundoDLC = true;
+			}
+			else {
+				hundoDLC = false;
+				hundo = true;
 			}
 			
 		}
@@ -200,6 +210,7 @@ public class LanguageSpeed {
 			}
 		}
 		
+		//Assigning values to cutscenes based on category
 		if (anyPercent) {
 			firstBeast = false;
 			allBeasts = false;
@@ -275,8 +286,163 @@ public class LanguageSpeed {
 			eventideStart = false;
 			eventideDone = false;
 			monkGift = false;
+		} 
+		
+		//Calculating seconds and frames saved
+		if (slate) {
+			
+			for (int row = 0; row <= 0; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = ((times [row] [col]) - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = (((times [row] [col]) % 1) * 100);
+				}
+			}			
+		}
+		
+		if (sorClip) {
+			
+			for (int row = 1; row <= 1; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = (((times [row] [col]) % 1) * 100);
+				}
+			}			
+		}
+		
+		if (firstBeast) {
+			
+			for (int row = 2; row <= 2; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (allBeasts) {
+			
+			for (int row = 3; row <= 3; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (northLomei) {
+			
+			for (int row = 4; row <= 4; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (southLomei) {
+			
+			for (int row = 5; row <= 5; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (lomeiIsland) {
+			
+			for (int row = 6; row <= 6; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (typhloRuins) {
+			
+			for (int row = 7; row <= 7; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (eventideStart) {
+			
+			for (int row = 8; row <= 8; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (eventideDone) {
+			
+			for (int row = 9; row <= 9; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		if (monkGift) {
+			
+			for (int row = 10; row <= 10; row++) {
+				
+				for (int col = 0; col<= times[0].length-1; col++) {
+						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
+						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+				}
+			}			
+		}
+		
+		for (int row = 0; row <=0; row++) {
+			
+			for (int col = 0; col<= finalSecondsDouble.length-1; col++) {
+				finalSeconds [col] = (int)finalSecondsDouble [col];
+			}
+			
+			for (int col =0; col<= finalSecondsDouble.length-1; col++) {
+				finalFrames [col] = (int)finalFramesDouble [col];
+			}
+		}
+		
+		/* Order of languages is English, Spanish (Latin America), French (Canada),
+		Japanese, Spanish (Spain), French (France), German, Italian, Russian.
+		*/
+		
+		for (int language = 0; language <= 0; language++) {
+			
+			for (int index = 0; index <= finalSecondsDouble.length-1; index++) {
+				
+				if (index == 0) {
+					System.out.println("The time saved by English is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+				}
+				if (index == 1) {
+					System.out.println("The time saved by Spanish (Latin America) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+				}
+				if (index == 2) {
+					
+				}
+				if (index == 3) {
+					
+				}
+				
+			}
 		}
 	}
-	
-	
 }
