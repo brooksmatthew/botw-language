@@ -9,6 +9,7 @@ public class LanguageSpeed {
 		
 		double [] finalSecondsDouble = new double [9];
 		int [] finalSeconds = new int [9];
+		int [] finalMinutes = new int [9];
 		
 		double [] finalFramesDouble = new double [9];
 		int [] finalFrames = new int [9];
@@ -30,7 +31,7 @@ public class LanguageSpeed {
 		//North Lomei Labyrinth
 		{7.03, 0.04, 0.03, 0.05, 0.04, 0, 0, 0, 7.05},
 		//South Lomei Labyrinth
-		{7.07, 0.07, 0.05, 0.07, 0.02, 0, 0.02, 7.07},
+		{7.07, 0.07, 0.05, 0.07, 0.07, 0.02, 0, 0.02, 7.07},
 		//Lomei Labyrinth Island
 		{7.04, 0.05, 0.03, 0.05, 0.05, 0, 0.04, 0.03, 7.07},
 		//Typhlo Ruins
@@ -58,8 +59,7 @@ public class LanguageSpeed {
 		//Entering Fire Blight
 		{0, 6.29, 7.01, 6.28, 7, 7.02, 7.02, 6.29, 7.02},
 		//Exiting Fire Blight
-		{5.04, 0.05, 0.25, 0, 0.02, 1.05, 1.06, 0.16, 0.22},
-			
+		{5.04, 0.05, 0.25, 0, 0.02, 1.05, 1.06, 0.16, 0.22},			
 		};
 		
 		//Which run category
@@ -84,11 +84,11 @@ public class LanguageSpeed {
 		boolean monkGift = false;
 		
 		//DLC cutscenes
-		boolean swordTrial;
-		boolean thunderBlight;
-		boolean windBlight;
-		boolean fireBlight;
-		boolean waterBlight;
+		boolean swordTrial = false;
+		boolean thunderBlight = false;
+		boolean windBlight = false;
+		boolean fireBlight = false;
+		boolean waterBlight = false;
 		
 		System.out.println("Which category are you running? Possible categories include Any%, All Dungeons, All Main Quests, All Shrines, and 100%");
 		String category = userInput.nextLine();
@@ -135,17 +135,16 @@ public class LanguageSpeed {
 			hundo = true;
 			
 			//Hundo + DLC?
-			System.out.println("Are you running 100% with DLC? y or n");
-			String dlcCheck = userInput.nextLine();
-			
-			if (dlcCheck.contains("y")) {
-				hundoDLC = true;
-			}
-			else {
-				hundoDLC = false;
-				hundo = true;
-			}
-			
+				System.out.println("Are you running 100% with DLC? y or n");
+				String dlcCheck = userInput.nextLine();
+				
+				if (dlcCheck.contains("y")) {
+					hundoDLC = true;
+				}
+				else {
+					hundoDLC = false;
+					hundo = true;
+				}
 		}
 		
 		//AS Extended
@@ -306,7 +305,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = (((times [row] [col]) % 1) * 100);
+						finalFramesDouble [col] = finalFramesDouble [col] + (((times [row] [col]) % 1) * 100);
 				}
 			}			
 		}
@@ -317,7 +316,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -328,7 +327,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -339,7 +338,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -350,7 +349,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -361,7 +360,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -372,7 +371,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -383,7 +382,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -394,7 +393,7 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
@@ -405,20 +404,33 @@ public class LanguageSpeed {
 				
 				for (int col = 0; col<= times[0].length-1; col++) {
 						finalSecondsDouble [col] = finalSecondsDouble [col] + (times [row] [col] - ((times [row] [col]) % 1));
-						finalFramesDouble [col] = ((times [row] [col]) % 1) * 100;
+						finalFramesDouble [col] = finalFramesDouble [col] + ((times [row] [col]) % 1) * 100;
 				}
 			}			
 		}
 		
 		for (int row = 0; row <=0; row++) {
 			
-			for (int col = 0; col<= finalSecondsDouble.length-1; col++) {
-				finalSeconds [col] = (int)finalSecondsDouble [col];
-			}
-			
 			for (int col =0; col<= finalSecondsDouble.length-1; col++) {
 				finalFrames [col] = (int)finalFramesDouble [col];
+				
+			//If frames is above 30, convert it to seconds and frames
+				if (finalFrames [col] >= 30) {
+					finalSeconds [col] = finalSeconds [col] + (finalFrames [col] / 30);
+					finalFrames [col] = finalFrames [col] % 30;
+				}
 			}
+			
+			for (int col = 0; col<= finalSecondsDouble.length-1; col++) {
+				finalSeconds [col] = (int)finalSecondsDouble [col];
+				
+			//If seconds is above 60 convert it to minutes and seconds
+				if (finalSeconds [col] >= 60) {
+					finalMinutes [col] = finalMinutes [col] + (finalSeconds [col] / 60);
+					finalSeconds [col] = finalSeconds [col] % 60;
+				}
+			}
+			
 		}
 		
 		/* Order of languages is English, Spanish (Latin America), French (Canada),
@@ -428,20 +440,65 @@ public class LanguageSpeed {
 		for (int language = 0; language <= 0; language++) {
 			
 			for (int index = 0; index <= finalSecondsDouble.length-1; index++) {
+				if (finalMinutes [index] >= 1) {
+					if (index == 0) {
+						System.out.println("The time saved by English is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 1) {
+						System.out.println("The time saved by Spanish (Latin America) is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 2) {
+						System.out.println("The time saved by French (Canada) is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 3) {
+						System.out.println("The time saved by Japanese is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 4) {
+						System.out.println("The time saved by Spanish (Spain) is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 5) {
+						System.out.println("The time saved by French (France) is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 6) {
+						System.out.println("The time saved by German is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 7) {
+						System.out.println("The time saved by Italian is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 8) {
+						System.out.println("The time saved by Russian is: " + finalMinutes [index] + " minute(s), " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+				}
 				
-				if (index == 0) {
-					System.out.println("The time saved by English is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+				else {
+					if (index == 0) {
+						System.out.println("The time saved by English is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 1) {
+						System.out.println("The time saved by Spanish (Latin America) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 2) {
+						System.out.println("The time saved by French (Canada) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 3) {
+						System.out.println("The time saved by Japanese is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 4) {
+						System.out.println("The time saved by Spanish (Spain) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 5) {
+						System.out.println("The time saved by French (France) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 6) {
+						System.out.println("The time saved by German is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 7) {
+						System.out.println("The time saved by Italian is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+					if (index == 8) {
+						System.out.println("The time saved by Russian is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
 				}
-				if (index == 1) {
-					System.out.println("The time saved by Spanish (Latin America) is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
-				}
-				if (index == 2) {
-					
-				}
-				if (index == 3) {
-					
-				}
-				
 			}
 		}
 	}
