@@ -7,6 +7,12 @@ public class LanguageSpeed {
 		//Scanner
 		Scanner userInput = new Scanner(System.in);
 		
+		//Array of language names
+		String [] languages = {
+			"English", "Spanish (Latin America)", "French (Canada)", "Japanese", "Spanish (Spain)", "French (France)", "German", "Italian", "Russian"
+		};
+		
+		//Array for total time save
 		double [] finalSecondsDouble = new double [9];
 		int [] finalSeconds = new int [9];
 		int [] finalMinutes = new int [9];
@@ -14,7 +20,7 @@ public class LanguageSpeed {
 		double [] finalFramesDouble = new double [9];
 		int [] finalFrames = new int [9];
 		
-		//Array
+		//Array of time save
 		/* Order of languages is English, Spanish (Latin America), French (Canada),
 		Japanese, Spanish (Spain), French (France), German, Italian, Russian.
 		*/
@@ -433,10 +439,35 @@ public class LanguageSpeed {
 			
 		}
 		
-		/* Order of languages is English, Spanish (Latin America), French (Canada),
-		Japanese, Spanish (Spain), French (France), German, Italian, Russian.
-		*/
+		int i;
+		int maxMin = finalMinutes[0];
+		int maxSec = finalSeconds[0];
+		int maxFrames = finalFrames[0];
 		
+		for (i = 1; i < finalMinutes.length; i++) {
+			if (finalMinutes[i] > maxMin) {
+				maxMin = finalMinutes[i];
+			}
+			else if (finalMinutes[i] == maxMin) {
+				for (int i2 = 1; i2 < finalSeconds.length; i2++) {
+					if (finalSeconds[i] > maxSec) {
+						maxSec = finalSeconds[i];
+					}
+					else if (finalSeconds[i] == maxSec) {
+						for (int i3 = 1; i3 < finalFrames.length; i3++) {
+							if (finalFrames[i] > maxFrames) {
+								maxFrames = finalFrames[i];
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		System.out.println(maxMin);
+		System.out.println(maxSec);
+		System.out.println(maxFrames);
+						
 		for (int language = 0; language <= 0; language++) {
 			
 			for (int index = 0; index <= finalSecondsDouble.length-1; index++) {
@@ -497,6 +528,24 @@ public class LanguageSpeed {
 					}
 					if (index == 8) {
 						System.out.println("The time saved by Russian is: " + finalSeconds [index] + " seconds and " + finalFrames [index] + " frames.");
+					}
+				}				
+			}
+			
+			for (int counter = 0; counter <= languages.length-1; counter++) {
+				if (finalMinutes[counter]  < 1) {
+					if (maxMin == finalMinutes[counter] && maxSec == finalSeconds[counter] && maxFrames == finalFrames [counter]) {
+						System.out.println("The fastest language is " + languages[counter] + " with a total timesave of: " + maxSec + " seconds and " + maxFrames + " frames.");
+					}
+				}
+				else if (finalMinutes[counter]  == 1){
+					if (maxMin == finalMinutes[counter] && maxSec == finalSeconds[counter] && maxFrames == finalFrames [counter]) {
+						System.out.println("The fastest language is " + languages[counter] + " with a total timesave of: " + maxMin + " minute " + maxSec + " seconds and " + maxFrames + " frames.");
+					}
+				}
+				else if (finalMinutes[counter]  >= 2){
+					if (maxMin == finalMinutes[counter] && maxSec == finalSeconds[counter] && maxFrames == finalFrames [counter]) {
+						System.out.println("The fastest language is " + languages[counter] + " with a total timesave of: " + maxMin + " minutes " + maxSec + " seconds and " + maxFrames + " frames.");
 					}
 				}
 			}
